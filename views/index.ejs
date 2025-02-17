@@ -23,22 +23,31 @@
     }
     .news-card {
         width: 300px;
-        height: 400px; /* Ensure a fixed height for consistency */
+        height: 400px; /* Fixed height for consistency */
         margin: 10px;
         padding: 15px;
         border: 1px solid #ccc;
         border-radius: 10px;
         background-color: #fff;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         display: flex;
         flex-direction: column;
-        justify-content: space-between; /* To keep text and links at the bottom */
+        justify-content: space-between;
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+        transform: perspective(600px) rotateX(0deg); /* Initial tile perspective */
     }
+
+    .news-card:hover {
+        transform: perspective(600px) rotateX(10deg); /* Tile effect on hover */
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Larger shadow on hover */
+    }
+
     .news-card h3 {
         color: #007BFF;
         font-size: 16px;
         margin-bottom: 10px;
     }
+
     .news-card p {
         font-size: 14px;
         color: #555;
@@ -46,35 +55,47 @@
         overflow: hidden; /* Prevent text overflow */
         text-overflow: ellipsis;
     }
+
     .date {
         font-size: 12px;
         color: #888;
     }
+
     .error {
         color: red;
         text-align: center;
         font-weight: bold;
     }
+
     a {
         color: #007BFF;
         text-decoration: none;
     }
+
     a:hover {
         text-decoration: underline;
     }
+
     img {
         width: 100%;
         height: 150px; /* Set a fixed height for images */
         object-fit: cover; /* Ensure the image covers the space without distortion */
         border-radius: 5px;
         margin-bottom: 15px;
+        transition: transform 0.3s ease; /* Smooth transition for image hover */
     }
+
+    img:hover {
+        transform: scale(1.05); /* Zoom effect on hover */
+    }
+
     @media (max-width: 600px) {
         .news-card {
             width: 100%; /* Full width for smaller screens */
         }
     }
 </style>
+
 
 </head>
 <body>
