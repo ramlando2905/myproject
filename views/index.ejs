@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latest News</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1 { text-align: center; }
+        .news-container { display: flex; flex-wrap: wrap; justify-content: center; }
+        .news-card { width: 300px; margin: 10px; padding: 10px; border: 1px solid #ccc; border-radius: 8px; }
+        img { width: 100%; height: auto; border-radius: 5px; }
+        .error { color: red; text-align: center; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Latest News</h1>
+
+    <% if (typeof error !== 'undefined' && error) { %>
+        <p class="error"><%= error %></p>
+    <% } %>
+
+    <div class="news-container">
+        <% articles.forEach(article => { %>
+            <div class="news-card">
+                <h3><%= article.title %></h3>
+                <% if (article.urlToImage) { %>
+                    <img src="<%= article.urlToImage %>" alt="News Image">
+                <% } %>
+                <p><%= article.description || 'No description available' %></p>
+                <a href="<%= article.url %>" target="_blank">Read more</a>
+            </div>
+        <% }); %>
+    </div>
+</body>
+</html>
